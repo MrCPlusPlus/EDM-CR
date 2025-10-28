@@ -66,11 +66,11 @@ This project is licensed under [NTU S-Lab License 1.0](https://github.com/sczhou
 
 We thank the authors of the following excellent works that inspired our research:
 
-- [SEN12MS-CR-TS](https://github.com/PatrickTUM/SEN12MS-CR-TS) - Multi-temporal cloud removal dataset and toolbox
-- [ResShift](https://github.com/zsyOAOA/ResShift) - Efficient diffusion model for image super-resolution
-- [UnCRtainTS](https://github.com/PatrickTUM/UnCRtainTS) - Uncertainty quantification for cloud removal
-- [GLF-CR](https://github.com/xufangchn/GLF-CR) - SAR-enhanced cloud removal with global-local fusion
-- [DSen2-CR](https://github.com/ameraner/dsen2-cr) - Deep residual neural network for cloud removal
-- [SpA-GAN](https://github.com/Penn000/SpA-GAN_for_cloud_removal) - Spatial attention GAN for cloud removal
-- [MC-GAN](https://github.com/enomotokenji/mcgan-cvprw2017-pytorch) - Multispectral conditional GAN
+- [SEN12MS-CR-TS](https://github.com/PatrickTUM/SEN12MS-CR-TS)
+- [ResShift](https://github.com/zsyOAOA/ResShift) 
+- [UnCRtainTS](https://github.com/PatrickTUM/UnCRtainTS) 
+- [GLF-CR](https://github.com/xufangchn/GLF-CR)
+- [DSen2-CR](https://github.com/ameraner/dsen2-cr)
+- [SpA-GAN](https://github.com/Penn000/SpA-GAN_for_cloud_removal) 
+- [MC-GAN](https://github.com/enomotokenji/mcgan-cvprw2017-pytorch)
 ```
