@@ -1,0 +1,107 @@
+trainer:
+  target: trainer.TrainerDifIRLPIPS
+
+autoencoder: ~
+
+model:
+  target: models.unet.UNetModelSwin_TemporalCond
+  ckpt_path: ~
+  params:
+    image_size: 256
+    in_channels: 13
+    model_channels: 160
+    out_channels: 13
+    attention_resolutions: [256,128,64,32]
+    dropout: 0
+    channel_mult: [1, 2, 2, 4]
+    num_res_blocks: [2, 2, 2, 2]
+    conv_resample: True
+    dims: 2
+    use_fp16: False
+    num_head_channels: 32
+    use_scale_shift_norm: True
+    resblock_updown: False
+    swin_depth: 2
+    swin_embed_dim: 192
+    window_size: 8
+    mlp_ratio: 4
+    cond_cloudy: True
+    cloudy_size: 256
+    cond_mode: multi
+    
+diffusion:
+  target: models.script_util.create_gaussian_diffusion
+  params:
+    sf: 1
+    schedule_name: exponential
+    schedule_kwargs:
+      power: 0.3
+    etas_end: 0.99
+    steps: 15
+    min_noise_level: 0.2
+    kappa: 2.0
+    weighted_mse: False
+    predict_type: xstart
+    timestep_respacing: ~
+    scale_factor: 1.0
+    normalize_input: True
+    latent_flag: False
+
+data:
+  train:
+    type: cloudremoval
+    params:
+      dir_path: /path/to/folder/  
+      need_path: False
+      mode: 'train'
+  val:
+    type: cloudremoval
+    params:
+      dir_path: /path/to/folder/  
+      mode: 'val'
+  test:
+    type: cloudremoval
+    params:
+      dir_path: /path/to/folder/  
+      need_path: True
+      mode: 'test'
+
+train:
+  # learning rate
+  lr: 5e-5                      # learning rate 
+  lr_min: 2e-5
+  lr_schedule: cosin
+  warmup_iterations: 5000
+  # dataloader
+  batch: [2, 2]                
+  microbatch: 2
+  num_workers: 4
+  prefetch_factor: 2            
+  # optimization settings
+  weight_decay: 0               
+  ema_rate: 0.999
+  iterations: 400000            # total iterations
+  # save logging
+  save_freq: 20000
+  log_freq: [2000, 2000, 2000]   # [training loss, training images, val images]
+  loss_coef: [1.0, 10.0]         # [mse, lpips]
+  local_logging: True           # manually save images
+  rgb_chn: [3,2,1]              # RGB Channels for logging images
+  # validation settings
+  use_ema_val: True            
+  val_freq: ${train.save_freq}
+  val_y_channel: False
+  val_resolution: 256
+  val_padding_mode: reflect
+  # training setting
+  use_amp: True               # amp training
+  seed: 123456                  # random seed
+  global_seeding: False
+  # compile setting
+  compile:
+    flag: False
+    mode: reduce-overhead
+  # lpips loss setting
+  lpips_type: shift   #'normal' 'shift' ~
+
+
