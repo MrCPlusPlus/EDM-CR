@@ -73,4 +73,3 @@ We thank the authors of the following excellent works that inspired our research
 - [DSen2-CR](https://github.com/ameraner/dsen2-cr)
 - [SpA-GAN](https://github.com/Penn000/SpA-GAN_for_cloud_removal) 
 - [MC-GAN](https://github.com/enomotokenji/mcgan-cvprw2017-pytorch)
-```
