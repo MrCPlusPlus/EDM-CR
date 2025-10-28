@@ -45,16 +45,14 @@ python inference.py \
 If you find our method helpful in your research, please cite:
 
 ```bibtex
-@article{cai2025edmcr,
-  title = {Fusing Sentinel-1 and Sentinel-2 data with diffusion models for cloud removal},
-  journal = {Remote Sensing of Environment},
-  volume = {331},
-  pages = {115049},
-  year = {2025},
-  issn = {0034-4257},
-  doi = {10.1016/j.rse.2025.115049},
-  url = {https://www.sciencedirect.com/science/article/pii/S0034425725004535},
-  author = {Jiajun Cai and Bo Huang and Hao Liu}
+@article{cai2025fusing,
+  title={Fusing Sentinel-1 and Sentinel-2 data with diffusion models for cloud removal},
+  author={Cai, Jiajun and Huang, Bo and Liu, Hao},
+  journal={Remote Sensing of Environment},
+  volume={331},
+  pages={115049},
+  year={2025},
+  publisher={Elsevier}
 }
 ```
 
